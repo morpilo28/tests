@@ -4,7 +4,6 @@ const app = {
     userId: 0,
     usersArray: [],
 }
-
 function main() {
     $('#mainPage').append(` 
     <header>
@@ -82,7 +81,8 @@ function makeEditable() {
 function getLocalStorage() {
     let UsersStr = null; //initialization of key in local storage
     UsersStr = localStorage.getItem("users" + app.usersArray);
-    if (UsersStr) {
+    console.log(UsersStr);
+    if (UsersStr && UsersStr !== '[]') {
         app.usersArray = JSON.parse(UsersStr);
         for (let i = 0; i < app.usersArray.length; i++) {
             drawUsersCards(i);
