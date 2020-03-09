@@ -1,0 +1,10 @@
+<h1>Add A Task</h1>
+<p>{{note}}</p>
+<textarea #description required placeholder="DESCRIPTION" type="text"></textarea><br><br>
+<input #date required placeholder="DATE" type="date" [min]='today'><br><br>
+<label for="tenants">Choose a tenant: </label>
+<select id="tenants" (change)="selectChangeHandler($event)">
+    <option value="">family members</option>
+    <option *ngFor='let tenant of tenants' [value]="tenant.name">{{tenant.name}}</option>
+</select><br><br>
+<button (click)='addTask(description, date)'>Add Task</button>
